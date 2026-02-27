@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
 
+// Will block any non-authors on whatever component it is called
 export function useCheckAuthor() {
   let navigate = useNavigate();
   let location = useLocation();
@@ -25,10 +26,9 @@ export function useCheckAuthor() {
         });
 
         if (res.ok) {
-          console.log("authorised and go home");
+          console.log("authorised and return to page component");
           const result = await res.json();
           localStorage.setItem("user", JSON.stringify(result.user));
-          navigate("/");
           return;
         }
 
