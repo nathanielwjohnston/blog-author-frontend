@@ -20,7 +20,6 @@ function Comment({ comment, commentId, removeComment, editComment }) {
       );
 
       if (res.ok) {
-        console.log("comment deleted");
         removeComment(commentId);
       }
     } catch (error) {
@@ -31,7 +30,6 @@ function Comment({ comment, commentId, removeComment, editComment }) {
   async function updateComment(e) {
     e.preventDefault();
     const form = e.currentTarget;
-    console.log(form);
     const newContent = form.querySelector(".comment-content").value;
 
     const token = localStorage.getItem("token");
@@ -52,7 +50,6 @@ function Comment({ comment, commentId, removeComment, editComment }) {
       );
 
       if (res.ok) {
-        console.log("comment updated");
         const comment = await res.json();
         editComment(commentId, comment);
         setEditing(false);
@@ -61,8 +58,6 @@ function Comment({ comment, commentId, removeComment, editComment }) {
       console.log(error);
     }
   }
-
-  console.log(comment);
 
   return (
     <>

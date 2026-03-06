@@ -24,8 +24,6 @@ function NewPost() {
         published: statusInput.current.checked,
       };
 
-      console.log(post);
-
       const res = await fetch(`http://localhost:3000/author-api/posts/`, {
         method: "POST",
         body: JSON.stringify(post),

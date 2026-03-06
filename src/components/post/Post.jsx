@@ -86,7 +86,6 @@ function Post() {
       );
 
       if (res.ok) {
-        console.log("post updated");
         const post = await res.json();
         setPost(post);
         setEditing(false);
@@ -111,7 +110,6 @@ function Post() {
       );
 
       if (res.ok) {
-        console.log("post deleted");
         navigate("/");
       }
     } catch (error) {

@@ -11,7 +11,6 @@ export function useCheckAuthor() {
       const token = localStorage.getItem("token");
       if (!token) {
         if (location.pathname === "/login") {
-          console.log("no token and return");
           return;
         }
         ("no token and go to login");
@@ -26,17 +25,14 @@ export function useCheckAuthor() {
         });
 
         if (res.ok) {
-          console.log("authorised and return to page component");
           const result = await res.json();
           localStorage.setItem("user", JSON.stringify(result.user));
           return;
         }
 
         if (location.pathname === "/login") {
-          console.log("not authorised and return");
           return;
         }
-        console.log("not authorised and go back to login");
         navigate("/login");
       } catch (error) {
         console.log("error" + error);

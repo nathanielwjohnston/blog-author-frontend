@@ -33,8 +33,6 @@ function Home() {
     getPosts();
   }, []);
 
-  console.log(posts);
-
   return (
     <>
       <h1>Home</h1>
