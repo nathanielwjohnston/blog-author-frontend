@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useCheckAuthor } from "../../hooks/useCheckAuthor";
 import { Link } from "react-router";
 
-import { API_URL } from "../config";
+import { API_URL } from "../../config";
 import CondensedPost from "../condensedPost/CondensedPost";
 
 function Home() {

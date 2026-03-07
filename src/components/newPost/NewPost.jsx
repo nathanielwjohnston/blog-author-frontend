@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useNavigate } from "react-router";
 import { useCheckAuthor } from "../../hooks/useCheckAuthor";
 
-import { API_URL } from "../config";
+import { API_URL } from "../../config";
 
 function NewPost() {
   useCheckAuthor();

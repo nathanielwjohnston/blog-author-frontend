@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { API_URL } from "../config";
+import { API_URL } from "../../config";
 
 function Comment({ comment, commentId, removeComment, editComment }) {
   const [editing, setEditing] = useState(false);

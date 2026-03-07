@@ -5,7 +5,7 @@ import { useNavigate, useLocation } from "react-router";
 import { useCheckAuthor } from "../../hooks/useCheckAuthor";
 
 import Comment from "../comment/Comment";
-import { API_URL } from "../config";
+import { API_URL } from "../../config";
 
 function Post() {
   useCheckAuthor();
