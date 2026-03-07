@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useCheckAuthor } from "../../hooks/useCheckAuthor";
 
+import { API_URL } from "../config";
+
 function Login() {
   useCheckAuthor();
 
@@ -22,7 +24,7 @@ function Login() {
 
   async function makeLoginAttempt() {
     try {
-      const res = await fetch("http://localhost:3000/author-api/login", {
+      const res = await fetch(`${API_URL}/author-api/login`, {
         method: "POST",
         body: JSON.stringify({
           username,

@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
 
+import { API_URL } from "../config";
+
 // Will block any non-authors on whatever component it is called
 export function useCheckAuthor() {
   let navigate = useNavigate();
@@ -18,7 +20,7 @@ export function useCheckAuthor() {
       }
 
       try {
-        const res = await fetch("http://localhost:3000/author-api/author", {
+        const res = await fetch(`${API_URL}/author-api/author`, {
           headers: {
             Authorization: `bearer ${token}`,
           },

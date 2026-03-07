@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { useNavigate } from "react-router";
 import { useCheckAuthor } from "../../hooks/useCheckAuthor";
 
+import { API_URL } from "../config";
+
 function NewPost() {
   useCheckAuthor();
 
@@ -24,7 +26,7 @@ function NewPost() {
         published: statusInput.current.checked,
       };
 
-      const res = await fetch(`http://localhost:3000/author-api/posts/`, {
+      const res = await fetch(`${API_URL}/author-api/posts/`, {
         method: "POST",
         body: JSON.stringify(post),
         headers: {

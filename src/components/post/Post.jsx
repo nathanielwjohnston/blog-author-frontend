@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { useCheckAuthor } from "../../hooks/useCheckAuthor";
+
 import Comment from "../comment/Comment";
+import { API_URL } from "../config";
 
 function Post() {
   useCheckAuthor();
@@ -20,14 +22,11 @@ function Post() {
     const getPost = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch(
-          `http://localhost:3000/author-api/posts/${postId}`,
-          {
-            headers: {
-              Authorization: `bearer ${token}`,
-            },
+        const res = await fetch(`${API_URL}/author-api/posts/${postId}`, {
+          headers: {
+            Authorization: `bearer ${token}`,
           },
-        );
+        });
         if (res.ok) {
           const fetchedPost = await res.json();
           setPost(fetchedPost);
@@ -73,17 +72,14 @@ function Post() {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch(
-        `http://localhost:3000/author-api/posts/${postId}`,
-        {
-          method: "PUT",
-          body: JSON.stringify(updatedPost),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `bearer ${token}`,
-          },
+      const res = await fetch(`${API_URL}/author-api/posts/${postId}`, {
+        method: "PUT",
+        body: JSON.stringify(updatedPost),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `bearer ${token}`,
         },
-      );
+      });
 
       if (res.ok) {
         const post = await res.json();
@@ -99,15 +95,12 @@ function Post() {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch(
-        `http://localhost:3000/author-api/posts/${postId}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `bearer ${token}`,
-          },
+      const res = await fetch(`${API_URL}/author-api/posts/${postId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `bearer ${token}`,
         },
-      );
+      });
 
       if (res.ok) {
         navigate("/");

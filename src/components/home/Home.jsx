@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { useCheckAuthor } from "../../hooks/useCheckAuthor";
-import CondensedPost from "../condensedPost/CondensedPost";
 import { Link } from "react-router";
+
+import { API_URL } from "../config";
+import CondensedPost from "../condensedPost/CondensedPost";
 
 function Home() {
   useCheckAuthor();
@@ -14,7 +16,7 @@ function Home() {
     const getPosts = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:3000/author-api/posts", {
+        const res = await fetch(`${API_URL}/author-api/posts`, {
           headers: {
             Authorization: `bearer ${token}`,
           },
